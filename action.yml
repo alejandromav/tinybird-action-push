@@ -1,0 +1,26 @@
+name: Tinybird Push
+description: Push changes to Tinybird data project
+author: Alejandro Martin <hi@alejandromav.com>
+
+inputs:
+  token:
+    description: Tinybird admin token
+    required: true
+
+  force:
+    description: Flag to update existing objects or not
+    required: false
+    default: true
+
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    TOKEN: ${{ inputs.token }}
+  args:
+    - ${{ inputs.force}}
+
+# For Github Marketplace listing
+branding:
+  icon: 'upload'  
+  color: 'white'
