@@ -9,7 +9,7 @@ git pull --unshallow
 
 # Detecting changes files from latest commit
 echo "> Detecting changes files for commit $GITHUB_SHA..."
-git_diff=$(git show --name-only "${GITHUB_SHA}" | grep -E '.(pipe|datasource)')
+git_diff=$(git show --stat --name-only "${GITHUB_SHA}" | grep -E '\.(pipe|datasource)')
 
 # Print changed files
 echo "> Detected files:"
@@ -22,6 +22,11 @@ POPULATE=""
 
 # Push changes
 for file in $git_diff; do
+  if [ ! -f "$file" ]; then
+    # Skip if detected file dosn't exist
+    continue
+  fi
+
   echo "> Pushing $file..."
 
   # Force flag
