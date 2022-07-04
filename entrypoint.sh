@@ -9,32 +9,32 @@ git pull --unshallow
 
 # Detecting changes files from latest commit
 echo "> Detecting changes files for commit $GITHUB_SHA..."
-git_diff=`git show --name-only ${GITHUB_SHA} | grep -E '.(pipe|datasource)'`
+git_diff=$(git show --name-only "${GITHUB_SHA}" | grep -E '.(pipe|datasource)')
 
 # Print changed files
 echo "> Detected files:"
-for file in $(echo $git_diff); do
-  echo $file
+for file in $git_diff; do
+  echo "$file"
 done
 
 FORCE=""
 POPULATE=""
 
 # Push changes
-for file in $(echo $git_diff); do
-  echo "\n> Pushing $file..."
+for file in $git_diff; do
+  echo "> Pushing $file..."
 
   # Force flag
-  if [ "${INPUT_FORCE,,}" = "true" ]; then
+  if echo $INPUT_FORCE | grep -iqF true; then
     FORCE="--force"
   fi
 
   # Populate flag
-  if [ "${INPUT_POPULATE,,}" = "true" ]; then
+  if echo $INPUT_POPULATE | grep -iqF true; then
     POPULATE="--populate"
   fi
 
   # Print command
   echo "tb --token ${TOKEN} push ${FORCE} $file ${POPULATE}"
-  tb --token ${TOKEN} push ${FORCE} $file ${POPULATE}
+  tb --token "${TOKEN}" push ${FORCE} "$file" ${POPULATE}
 done
