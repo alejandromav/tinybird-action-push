@@ -1,9 +1,9 @@
 # Tinybird GitHub Action Push
 This action allows you to push changes to your Tinybird data project.
 
-It will detected changed files from the latest commit that triggered the action, and push those changes.
+It will detected **changed files from the latest commit** that triggered the action, and push those changes.
 
-If you need more options, you can use the Tinybird CLi action and pass the arguments you need: [https://github.com/alejandromav/tinybird-action-push](https://github.com/alejandromav/tinybird-action-push)
+If you need more options, you can use the Tinybird CLI action and pass the arguments you need: [https://github.com/alejandromav/tinybird-action-push](https://github.com/alejandromav/tinybird-action-push)
 
 ## Usage
 To use the action simply create an `*.yml` file in the `.github/workflows/` directory. Ref. https://docs.github.com/es/actions/learn-github-actions/workflow-syntax-for-github-actions
@@ -31,7 +31,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Push changes to Tinybird
-      uses: alejandromav/tinybird-action-push@1.1.2
+      uses: alejandromav/tinybird-action-push@1.1.3
       with:
         # [required]
         # Tinybird admin token. Please, use Github secrets (https://docs.github.com/en/actions/security-guides/encrypted-secrets)
