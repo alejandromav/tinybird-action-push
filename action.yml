@@ -12,6 +12,11 @@ inputs:
     required: false
     default: true
 
+  populate:
+    description: Populate materialized views with existing data
+    required: false
+    default: false
+
 runs:
   using: docker
   image: Dockerfile

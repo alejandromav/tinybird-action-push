@@ -30,8 +30,8 @@ for file in $(echo $git_diff); do
   fi
 
   # Populate flag
-  if [ "${INPUT_FORCE,,}" = "true" ]; then
-    FORCE="--force"
+  if [ "${INPUT_POPULATE,,}" = "true" ]; then
+    POPULATE="--populate"
   fi
 
   # Print command
