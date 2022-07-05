@@ -40,6 +40,6 @@ for file in $git_diff; do
   fi
 
   # Print command
-  echo "tb --token ${TOKEN} push ${FORCE} $file ${POPULATE}"
-  tb --token "${TOKEN}" push ${FORCE} "$file" ${POPULATE}
+  echo "tb --token ${TOKEN} push --push-deps ${FORCE} $file ${POPULATE}"
+  tb --token "${TOKEN}" push --push-deps ${FORCE} "$file" ${POPULATE}
 done
