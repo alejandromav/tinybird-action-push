@@ -36,6 +36,8 @@ jobs:
         # [required]
         # Tinybird admin token. Please, use Github secrets (https://docs.github.com/en/actions/security-guides/encrypted-secrets)
         token: ${{ secrets.TINYBIRD_TOKEN }}
+        # [required]
+        host: ${{ secrets.TINYBIRD_HOST }}
         # [optional]
         # Option to force changes or not, and update existing objects. Defaults to `true`.
         force: false

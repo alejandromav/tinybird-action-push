@@ -16,3 +16,4 @@ jobs:
         id: tinybird-action-push
         with:
           token: ${{ secrets.TINYBIRD_TOKEN }}
+          host: "https://api.us-east.tinybird.co"

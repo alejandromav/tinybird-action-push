@@ -1,6 +1,7 @@
 #!/bin/sh -l
 
 : "${TOKEN?Tinybird token not found, please check README.md.}"
+: "${HOST?Tinybird host not found, please check README.md.}"
 : "${GITHUB_WORKSPACE?GITHUB_WORKSPACE has to be set. Did you use the actions/checkout action?}"
 : "${GITHUB_SHA?GITHUB_SHA has to be set. Did you use the actions/checkout action?}"
 
@@ -40,6 +41,6 @@ for file in $git_diff; do
   fi
 
   # Print command
-  echo "tb --token ${TOKEN} push --push-deps ${FORCE} $file ${POPULATE}"
-  tb --token "${TOKEN}" push --push-deps ${FORCE} "$file" ${POPULATE}
+  echo "tb --token ${TOKEN} --host "${HOST}" push --push-deps ${FORCE} $file ${POPULATE}"
+  tb --token "${TOKEN}" --host "${HOST}" push --push-deps ${FORCE} "$file" ${POPULATE}
 done
