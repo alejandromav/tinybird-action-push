@@ -28,7 +28,7 @@ jobs:
 
     steps:
     # Important: This sets up your GITHUB_WORKSPACE environment variable
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Push changes to Tinybird
       uses: alejandromav/tinybird-action-push@1.1.4
@@ -36,9 +36,18 @@ jobs:
         # [required]
         # Tinybird admin token. Please, use Github secrets (https://docs.github.com/en/actions/security-guides/encrypted-secrets)
         token: ${{ secrets.TINYBIRD_TOKEN }}
+
+        # [optional]
+        # Tinybird host. Defaults to `https://api.tinybird.co`.
+        host: https://api.us-east.tinybird.co
+        #
+        # You can also use and env var if you don't want to reveal your Tinybird host (dedicated clusters, etc.)
+        # host: ${{ secrets.TINYBIRD_HOST }}
+
         # [optional]
         # Option to force changes or not, and update existing objects. Defaults to `true`.
         force: false
+
         # [optional]
         # Option to populate materialized views with existing data. Defaults to `false`.
         populate: true

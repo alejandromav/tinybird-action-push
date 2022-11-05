@@ -7,6 +7,11 @@ inputs:
     description: Tinybird admin token
     required: true
 
+  host:
+    description: Tinybird region for your account
+    required: false
+    default: https://api.tinybird.co
+
   force:
     description: Flag to update existing objects or not
     required: false
@@ -22,6 +27,7 @@ runs:
   image: Dockerfile
   env:
     TOKEN: ${{ inputs.token }}
+    HOST: ${{ inputs.host }}
   args:
     - ${{ inputs.force}}
 
