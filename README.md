@@ -31,7 +31,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Push changes to Tinybird
-      uses: alejandromav/tinybird-action-push@1.1.4
+      uses: alejandromav/tinybird-action-push@1.2.0
       with:
         # [required]
         # Tinybird admin token. Please, use Github secrets (https://docs.github.com/en/actions/security-guides/encrypted-secrets)
