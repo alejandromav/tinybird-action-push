@@ -3,17 +3,31 @@ name: CI
 on: [ push ]
 
 jobs:
-  hello_world_job:
+  eu_ci:
     runs-on: ubuntu-latest
-    name: Test action works
+    name: Test action works in Tinybird EU
     steps:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Test Tinybird CLI, should prompt help
         uses: ./ # Uses an action in the root directory
         id: tinybird-action-push
         with:
           token: ${{ secrets.TINYBIRD_TOKEN }}
+
+  us_east_ci:
+    runs-on: ubuntu-latest
+    name: Test action works in Tinybird US East
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Test Tinybird CLI, should prompt help
+        uses: ./ # Uses an action in the root directory
+        id: tinybird-action-push
+        with:
+          token: ${{ secrets.TINYBIRD_TOKEN_US }}
           host: "https://api.us-east.tinybird.co"

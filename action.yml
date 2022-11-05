@@ -9,7 +9,8 @@ inputs:
 
   host:
     description: Tinybird region for your account
-    required: true
+    required: false
+    default: https://api.tinybird.co
 
   force:
     description: Flag to update existing objects or not
