@@ -5,6 +5,8 @@
 : "${GITHUB_WORKSPACE?GITHUB_WORKSPACE has to be set. Did you use the actions/checkout action?}"
 : "${GITHUB_SHA?GITHUB_SHA has to be set. Did you use the actions/checkout action?}"
 
+git config --global --add safe.directory $GITHUB_WORKSPACE
+
 # Revert fetch with depth=1, so eveything is collpased to one single commit
 git pull --unshallow
 
