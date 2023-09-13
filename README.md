@@ -1,3 +1,6 @@
+> [!WARNING]
+> This project is deprecated and no longer maintained, please use [@tinybird/ci](https://github.com/tinybirdco/ci) instead
+
 # Tinybird GitHub Action Push
 This action allows you to push changes to your Tinybird data project.
 
